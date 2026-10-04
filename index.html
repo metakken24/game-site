@@ -2,34 +2,249 @@
 <html lang="ja">
 
 <head>
-    <!-- 文字コードをUTF-8に設定します -->
+    <!-- 日本語を正しく表示するための設定 -->
     <meta charset="UTF-8">
 
-    <!-- スマートフォンでも画面幅に合わせて表示します -->
+    <!-- スマートフォンでも画面サイズに合わせて表示する設定 -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- ブラウザのタブに表示される名前です -->
+    <!-- ブラウザのタブに表示されるタイトル -->
     <title>My Game Site</title>
+
+    <style>
+        /* ==============================　サイト全体の基本設定　============================== */
+
+        /* ページ全体の余白をなくします */
+        body {
+            margin: 0;
+
+            /* 背景色 */
+            background-color: #f4f6f8;
+
+            /* 文字の基本フォント */
+            font-family: Arial, sans-serif;
+
+            /* 文字色 */
+            color: #222;
+        }
+
+        /* ==============================　ヘッダー　============================== */
+
+        /* サイト上部のタイトル部分 */
+        header {
+            background-color: #222;
+            color: white;
+
+            /* 上下左右の余白 */
+            padding: 30px 20px;
+
+            /* 文字を中央揃え */
+            text-align: center;
+        }
+
+        /* サイトタイトル */
+        header h1 {
+            margin: 0;
+            font-size: 36px;
+        }
+
+        /* サイト説明 */
+        header p {
+            margin: 10px 0 0;
+            font-size: 16px;
+        }
+
+        /* ==============================　ゲーム一覧　============================== */
+
+        /* ゲーム一覧全体 */
+        .games {
+            max-width: 1000px;
+
+            /* 左右の幅を自動調整 */
+            margin: 40px auto;
+
+            /* スマートフォンなどでの余白 */
+            padding: 0 20px;
+        }
+
+        /* 「Games」の見出し */
+        .games h2 {
+            text-align: center;
+            font-size: 30px;
+            margin-bottom: 30px;
+        }
+
+        /* ==============================　ゲームカード　============================== */
+
+        /* ゲームを並べる場所 */
+        .game-list {
+            display: grid;
+
+            /* 画面幅に応じてカードを自動的に並べます */
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+
+            /* カード同士の間隔 */
+            gap: 25px;
+        }
+
+        /* 1つのゲームカード */
+        .game-card {
+            background-color: white;
+
+            /* カードの角を丸くします */
+            border-radius: 12px;
+
+            /* カードの内側の余白 */
+            padding: 25px;
+
+            /* 影をつけてカードらしくします */
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+
+            /* 中央揃え */
+            text-align: center;
+        }
+
+        /* ゲームタイトル */
+        .game-card h3 {
+            margin-top: 0;
+            font-size: 24px;
+        }
+
+        /* ゲーム説明 */
+        .game-card p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        /* ============================== PLAYボタン　============================== */
+
+        /* PLAYボタン */
+        .play-button {
+            display: inline-block;
+
+            /* ボタンの内側の余白 */
+            padding: 12px 30px;
+
+            /* ボタンの背景色 */
+            background-color: #222;
+
+            /* 文字色 */
+            color: white;
+
+            /* 下線を消します */
+            text-decoration: none;
+
+            /* ボタンの角を丸くします */
+            border-radius: 8px;
+
+            /* ボタンの上に少し余白 */
+            margin-top: 10px;
+
+            /* 文字を少し太くします */
+            font-weight: bold;
+        }
+
+        /* PLAYボタンにマウスを乗せたとき */
+        .play-button:hover {
+            background-color: #444;
+        }
+
+        /* ==============================　フッター　============================== */
+
+        footer {
+            text-align: center;
+
+            /* 上下の余白 */
+            padding: 30px;
+
+            /* 少し薄い文字色 */
+            color: #777;
+
+            font-size: 14px;
+        }
+    </style>
 </head>
 
+
 <body>
+    <!-- ==============================　サイトのヘッダー ============================== -->
 
-    <!-- サイトのタイトル -->
-    <h1>🎮 My Game Site</h1>
+    <header>
 
-    <!-- サイトの説明 -->
-    <p>無料で遊べるブラウザゲーム</p>
+        <!-- サイト名 -->
+        <h1>🎮 My Game Site</h1>
 
-    <!-- ゲーム一覧 -->
-    <h2>Games</h2>
+        <!-- サイトの説明 -->
+        <p>無料で遊べるブラウザゲーム</p>
 
-    <!-- 今回作ったゲーム -->
-    <h3>DODGE GAME</h3>
+    </header>
 
-    <p>落ちてくる敵を避け続けるゲームです。</p>
+    <!-- ==============================　ゲーム一覧　============================== -->
 
-    <!-- あとでゲームを起動するボタンを作ります -->
-    <button>PLAY</button>
+    <main class="games">
+
+        <!-- セクションタイトル -->
+        <h2>Games</h2>
+
+
+        <!-- ゲームカードを並べる場所 -->
+        <div class="game-list">
+
+            <!-- ==========================　ゲーム1　========================== -->
+
+            <div class="game-card">
+
+                <!-- ゲームタイトル -->
+                <h3>🎯 DODGE GAME</h3>
+
+                <!-- ゲーム説明 -->
+                <p>
+                    落ちてくる敵を避け続けるゲーム。
+                    どこまでスコアを伸ばせるか挑戦しよう！
+                </p>
+
+                <!--
+                    今はまだゲーム本体が入っていないので、
+                    PLAYボタンは仮の状態です。
+                    後でUnityのゲームページにつなげます。
+                -->
+                <a href="#" class="play-button">
+                    PLAY
+                </a>
+
+            </div>
+
+            <!-- ==========================　これから追加するゲーム　========================== -->
+
+            <div class="game-card">
+
+                <h3>🎮 GAME 2</h3>
+
+                <p>
+                    新しいゲームを作ったら、
+                    ここに追加できます。
+                </p>
+
+                <a href="#" class="play-button">
+                    COMING SOON
+                </a>
+
+            </div>
+
+
+        </div>
+
+    </main>
+
+    <!-- ==============================　フッター　============================== -->
+
+    <footer>
+
+        <p>
+            © 2026 My Game Site
+        </p>
+
+    </footer>
 
 </body>
 
